@@ -1,0 +1,45 @@
+<section class="hero is-success">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        書籍一覧
+      </h1>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-multiline">
+      <% @books.each do |book| %>
+        <div class="column is-4">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <%= link_to book_path(book) do %>
+                  <%= attachment_image_tag book, :image %>
+                <% end %>
+              </figure>
+            </div>
+            <div class="card-content">
+              <div class="media">
+                <div class="media-left">
+                  <figure class="image is-48x48">
+                    <%= attachment_image_tag book.user, :profile_image, fallback: "no-image.png", class: "profile_image" %>
+                  </figure>
+                </div>
+                <div class="media-content">
+                  <div class="title"><%=link_to book.user.username, user_path(book.user) %></div>
+                </div>
+              </div>
+
+              <div class="content">
+                <time><%= book.updated_at.strftime("%Y-%m-%d %H:%M") %></time>更新
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
