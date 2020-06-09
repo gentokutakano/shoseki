@@ -21,11 +21,11 @@ class BooksController < ApplicationController
       render :new
     end
   end
-  
+
   def edit
     @book = Book.find(params[:id])
     if @book.user != current_user
-        redirect_to books_path, alert: "不正なアクセスです。"
+      redirect_to books_path, alert: "不正なアクセスです。"
     end
   end
 
