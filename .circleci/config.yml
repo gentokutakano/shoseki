@@ -3,7 +3,7 @@ jobs:
   rubocop:
     working_directory: ~/shoseki
     docker:
-      - image: circleci/ruby:2.5.1
+      - image: circleci/ruby:2.5.8
     steps:
       - checkout
       - restore_cache:
