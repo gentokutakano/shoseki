@@ -1,11 +1,12 @@
 class BooksController < ApplicationController
+  before_action :authenticate_user!, except: [:index]
+
   def index
-    @books = Book.all
+    @books = Book.all.order(id: "DESC")
   end
 
   def show
     @book = Book.find(params[:id])
-
   end
 
   def new
@@ -13,12 +14,14 @@ class BooksController < ApplicationController
   end
 
   def create
-    @book = Book.new(book_params)
-    @book.user_id = current_user.id
-    @book.save
-    redirect_to book_path(@book)
+    @book = current_user.books.build(book_params)
+    if @book.save
+      redirect_to book_path(@book), notice: "書籍を投稿しました。"
+    else
+      render :new
+    end
   end
-
+  
   def edit
     @book = Book.find(params[:id])
     if @book.user != current_user
@@ -33,6 +36,12 @@ class BooksController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    book = Book.find(params[:id])
+    book.destroy
+    redirect_to user_path(book.user), notice: "書籍を削除しました。"
   end
 
   private
