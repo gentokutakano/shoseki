@@ -8,8 +8,8 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   validates :username, presence: true
 
-  #いいねしているか確認する
+  # いいねしているか確認する
   def already_favorited?(book)
-    self.favorites.exists?(book_id: book.id)
+    favorites.exists?(book_id: book.id)
   end
 end
