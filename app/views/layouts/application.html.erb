@@ -23,7 +23,7 @@
       </div>
     <% end %>
 
-    <nav class="navbar is-warning">
+    <nav class="navbar">
       <div class="navbar-brand">
         <%= link_to root_path, class: "navbar-item" do %>
           <h1 class="title is-4" style="font-family: cursive;">Shoseki</h1>
@@ -38,23 +38,23 @@
       <% if user_signed_in? %>
         <div id="navbarExampleTransparentExample" class="navbar-menu">
           <div class="navbar-item">
-            <%= link_to "書籍一覧", books_path, class: "navbar-item button is-warning is-light" %>
+            <%= link_to "書籍一覧", books_path, class: "navbar-item button is-success is-light" %>
           </div>
           <div class="navbar-item">
-            <%= link_to "書籍投稿", new_book_path, class: "navbar-item button is-warning is-light" %>
+            <%= link_to "書籍投稿", new_book_path, class: "navbar-item button is-success is-light" %>
           </div>
 
           <div class="navbar-end">
             <div class="navbar-item">
               <div class="field is-grouped">
                 <p class="control">
-                  <%= link_to "読書家一覧", users_path, class: " button is-warning is-light" %>
+                  <%= link_to "読書家一覧", users_path, class: " button is-success is-light" %>
                 </p>
                 <p class="control">
-                  <%= link_to "マイページ", user_path(current_user), class: "button is-warning is-light" %>
+                  <%= link_to "マイページ", user_path(current_user), class: "button is-success is-light" %>
                 </p>
                 <p class="control">
-                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "button is-warning is-light" %>
+                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "button is-success is-light" %>
                 </p>
               </div>
             </div>
