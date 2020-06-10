@@ -101,6 +101,6 @@ Rails.application.configure do
           secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
           s3_region: 'ap-northeast-1'
         },
-        bucket: 'shoseki-book'
+        bucket: 'shoseki-gentoku'
       }
 end
