@@ -5,7 +5,7 @@ inherit_from:
 Rails:
    Enabled: true
 
-#検証除外フォルダ指定
+#検証除外フォルダ
 AllCops:
   Exclude:
     - 'db/**/*'
