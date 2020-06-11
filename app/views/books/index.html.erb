@@ -36,11 +36,11 @@
               <div class="content">
                 <time><%= book.updated_at.strftime("%Y-%m-%d %H:%M") %></time>更新
               </div>
-
-              <div id="favorites_buttons_<%= book.id %>">
-                <%= render partial: 'favorites/favorite', locals: { book: book} %>
-              </div>
-
+              <% if user_signed_in? %>
+                <div id="favorites_buttons_<%= book.id %>">
+                  <%= render partial: 'favorites/favorite', locals: { book: book} %>
+                </div>
+              <% end %>
             </div>
           </div>
         </div>
