@@ -44,6 +44,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem "rails-controller-testing"
   gem 'webdrivers'
+  gem 'launchy', '~> 2.4.3'
 end
 
 group :development do
