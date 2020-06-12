@@ -29,10 +29,12 @@
                   </figure>
                 </div>
                 <div class="media-content">
-                  <div class="title"><%=link_to book.user.username, user_path(book.user) %></div>
+                  <div class="title">
+                    <%=link_to book.user.username, user_path(book.user) %>
+                  </div>
                 </div>
               </div>
-
+              書籍名：<%=link_to book.title, book_path(book) %>
               <div class="content">
                 <time><%= book.updated_at.strftime("%Y-%m-%d %H:%M") %></time>更新
               </div>

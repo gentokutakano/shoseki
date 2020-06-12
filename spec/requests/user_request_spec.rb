@@ -57,6 +57,17 @@ RSpec.describe "Users", type: :request do
       it "正常にレスポンスを返す" do
         expect(response).to have_http_status "200"
       end
-    end    
+    end 
+
+    context "ゲストとして" do
+      it "302レスポンスを返す" do
+        get edit_user_path(user)
+        expect(response).to have_http_status "302"
+      end
+      it "ログイン画面にリダイレクトされる" do
+        get edit_user_path(user)
+        expect(response).to redirect_to new_user_session_path
+      end
+    end
   end
 end
