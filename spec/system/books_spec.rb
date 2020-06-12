@@ -8,6 +8,7 @@ RSpec.describe "Books", type: :system do
     before do
       visit books_path
     end
+
     it "「title」「作成主」「更新日時」が表示されている" do
       within ".section" do
         expect(page).to have_content book.user.username
@@ -20,8 +21,6 @@ RSpec.describe "Books", type: :system do
     end
 
     it "book.titleクリック時、書籍詳細画面移動" do
-      
     end
-    
   end
 end

@@ -8,6 +8,7 @@ RSpec.describe "Users", type: :request do
       before do
         get users_path
       end
+
       it "正常にレスポンスを返す" do
         expect(response).to have_http_status "200"
       end
@@ -22,6 +23,7 @@ RSpec.describe "Users", type: :request do
         sign_in user
         get user_path(user)
       end
+
       it "正常にレスポンスを返す" do
         expect(response).to have_http_status "200"
       end
@@ -35,6 +37,7 @@ RSpec.describe "Users", type: :request do
       before do
         get new_user_session_path
       end
+
       it "正常にレスポンスを返す" do
         expect(response).to have_http_status "200"
       end
@@ -44,6 +47,7 @@ RSpec.describe "Users", type: :request do
       before do
         get new_user_registration_path
       end
+
       it "正常にレスポンスを返す" do
         expect(response).to have_http_status "200"
       end
@@ -54,10 +58,11 @@ RSpec.describe "Users", type: :request do
         sign_in user
         get edit_user_path(user)
       end
+
       it "正常にレスポンスを返す" do
         expect(response).to have_http_status "200"
       end
-    end 
+    end
 
     context "ゲストとして" do
       it "302レスポンスを返す" do

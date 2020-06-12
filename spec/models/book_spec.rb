@@ -11,7 +11,6 @@ RSpec.describe Book, type: :model do
     expect(book).to be_valid
   end
 
-
   it "書籍名がなければ無効な状態であること" do
     book = Book.new(title: nil)
     book.valid?

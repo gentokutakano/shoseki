@@ -9,6 +9,7 @@ RSpec.describe "Books", type: :request do
       before do
         get books_path
       end
+
       it "正常にレスポンスを返す" do
         expect(response).to have_http_status "200"
       end
@@ -23,6 +24,7 @@ RSpec.describe "Books", type: :request do
         sign_in user
         get book_path(book)
       end
+
       it "正常にレスポンスを返す" do
         expect(response).to have_http_status "200"
       end
