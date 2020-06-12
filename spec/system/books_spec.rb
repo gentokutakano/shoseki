@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Books", type: :system do
-  let(:user) { create(:user) }
+  let!(:user) { create(:user) }
   let!(:book) { create(:book) }
 
   describe "#index" do
@@ -18,9 +18,26 @@ RSpec.describe "Books", type: :system do
     end
 
     it "usernameクリック時マイページへ移動" do
+      sign_in user
+      within ".media-content" do
+        click_on book.user.username
+        expect(page).to have_current_path(user_path(book.user))
+      end
     end
 
     it "book.titleクリック時、書籍詳細画面移動" do
+      sign_in user
+      within ".card-content" do
+        click_on book.title
+        expect(page).to have_current_path(book_path(book))
+      end
+    end
+  end
+
+  describe "#show" do
+    before do
+      sign_in user
+      visit book_path(book)
     end
   end
 end
