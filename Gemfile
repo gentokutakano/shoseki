@@ -74,3 +74,4 @@ gem "refile-mini_magick"
 gem "bulma-rails"
 gem "aws-sdk", "~> 2.3"
 gem 'jquery-rails'
+gem 'rails_12factor'
