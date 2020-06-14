@@ -39,5 +39,13 @@ RSpec.describe "Books", type: :system do
       sign_in user
       visit book_path(book)
     end
+
+    it "「title」「感想」「作成者」が表示されている" do
+      within ".columns" do
+        expect(page).to have_content "プロを目指す人のためのRuby入門"
+        expect(page).to have_content "Rubyの基本的な機能について幅広く理解できたと思います。"
+        expect(page).to have_content "user"
+      end
+    end
   end
 end
