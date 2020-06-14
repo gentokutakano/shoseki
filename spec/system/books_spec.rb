@@ -47,5 +47,47 @@ RSpec.describe "Books", type: :system do
         expect(page).to have_content "user"
       end
     end
+
+    it "usernameクリック時user詳細画面へ移動" do
+      within ".show" do
+        click_on "user"
+        expect(page).to have_current_path(user_path(book.user))
+      end
+    end
+  end
+
+  describe "#new" do
+    before do
+      sign_in user
+      visit new_book_path
+    end
+
+    it "「書籍名」「感想」「写真」の入力欄が表示されている" do
+      within ".new" do
+        expect(page).to have_content "書籍名"
+        expect(page).to have_content "感想"
+        expect(page).to have_content "写真"
+      end
+    end
+
+    it "正しい値が入力された時" do
+      within ".new" do
+        fill_in "book_title", with: "everyday_rails_rspec"
+        fill_in "book_body",  with: "RSpecを使ったRailsの自動テストを説明した技術書です。"
+      end
+      click_button "投稿"
+      expect(page).to have_content "書籍を投稿しました。"
+    end
+
+    it "正しい値が入力された時" do
+      within ".new" do
+        fill_in "book_title", with: ""
+        fill_in "book_body",  with: ""
+      end
+      click_button "投稿"
+      expect(page).to have_content "2 errors prohibited this object from being saved: not successfully"
+      expect(page).to have_content "Title can't be blank"
+      expect(page).to have_content "Body can't be blank"
+    end
   end
 end

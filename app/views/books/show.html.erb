@@ -34,14 +34,14 @@
                 </tr>
               </table>
               <% if @book.user.id == current_user.id %>
-                <%= link_to "編集画面へ", edit_book_path(@book), class: "button is-success" %>
+                <%= link_to "編集画面へ", edit_book_path(@book), class: "button is-success", id: "edit" %>
               <% end %>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="column is-4">
+      <div class="column is-4 show">
         <article class="panel is-link">
           <p class="panel-heading">
             By <%= @book.user.username %>
