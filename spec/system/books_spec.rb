@@ -79,13 +79,13 @@ RSpec.describe "Books", type: :system do
       expect(page).to have_content "書籍を投稿しました。"
     end
 
-    it "正しい値が入力された時" do
+    it "空の値が入力された時" do
       within ".new" do
         fill_in "book_title", with: ""
         fill_in "book_body",  with: ""
       end
       click_button "投稿"
-      expect(page).to have_content "2 errors prohibited this object from being saved: not successfully"
+      expect(page).to have_content "2 errors prohibited this object from being saved: not"
       expect(page).to have_content "Title can't be blank"
       expect(page).to have_content "Body can't be blank"
     end
