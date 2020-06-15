@@ -72,6 +72,6 @@ gem 'devise'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 gem "bulma-rails"
-gem "aws-sdk-s3", require: false
 gem 'jquery-rails'
 gem 'rails_12factor'
+gem "refile-s3"
