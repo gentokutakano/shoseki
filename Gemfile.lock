@@ -58,19 +58,13 @@ GEM
     arel (9.0.0)
     ast (2.4.1)
     aws-eventstream (1.1.0)
-    aws-partitions (1.329.0)
-    aws-sdk-core (3.99.2)
-      aws-eventstream (~> 1, >= 1.0.2)
-      aws-partitions (~> 1, >= 1.239.0)
-      aws-sigv4 (~> 1.1)
+    aws-sdk (2.11.527)
+      aws-sdk-resources (= 2.11.527)
+    aws-sdk-core (2.11.527)
+      aws-sigv4 (~> 1.0)
       jmespath (~> 1.0)
-    aws-sdk-kms (1.34.1)
-      aws-sdk-core (~> 3, >= 3.99.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-s3 (1.68.1)
-      aws-sdk-core (~> 3, >= 3.99.0)
-      aws-sdk-kms (~> 1)
-      aws-sigv4 (~> 1.1)
+    aws-sdk-resources (2.11.527)
+      aws-sdk-core (= 2.11.527)
     aws-sigv4 (1.1.4)
       aws-eventstream (~> 1.0, >= 1.0.2)
     bcrypt (3.1.13)
@@ -217,6 +211,9 @@ GEM
     refile-mini_magick (0.2.0)
       mini_magick (~> 4.0)
       refile (~> 0.5)
+    refile-s3 (0.2.0)
+      aws-sdk (~> 2.0)
+      refile (~> 0.6.0)
     regexp_parser (1.7.1)
     responders (3.0.1)
       actionpack (>= 5.0)
@@ -335,7 +332,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  aws-sdk-s3
   bootsnap (>= 1.1.0)
   bulma-rails
   byebug
@@ -355,6 +351,7 @@ DEPENDENCIES
   rails_12factor
   refile!
   refile-mini_magick
+  refile-s3
   rspec-rails (~> 4.0.0)
   rubocop-airbnb
   sass-rails (~> 5.0)
