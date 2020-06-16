@@ -37,7 +37,7 @@
 
           <div class="field">
             <%= f.label :image, "写真", class: "label" %>
-            <%= f.attachment_field :image, class: "input is-success" %>
+            <%= f.attachment_field :image, direct: true, presigned: true, class: "input is-success" %>
           </div>
 
           <%= f.submit '投稿', class: "button is-success" %>
