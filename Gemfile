@@ -75,3 +75,4 @@ gem "bulma-rails"
 gem 'jquery-rails'
 gem 'rails_12factor'
 gem "refile-s3"
+gem 'dotenv-rails'
