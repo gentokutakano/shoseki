@@ -12,6 +12,9 @@
       <div class="columns is-centered">
         <div class="column is-5">
           <br>
+          <p>▼すぐログインいただけます▼</p>
+          <%= link_to "ゲストログイン(閲覧用)", homes_guest_sign_in_path, method: :post, class: "button is-info is-fullwidth" %>
+          <br>
           <%= link_to "ログイン", new_user_session_path, class: "button is-success is-fullwidth" %>
           <br>
           <%= link_to "新規登録", new_user_registration_path, class: "button is-success is-fullwidth" %>

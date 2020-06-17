@@ -75,6 +75,9 @@
                   <%= link_to "ログイン", new_user_session_path, class: "button is-success is-light" %>
                 </p>
                 <p class="control">
+                  <%= link_to "ゲストログイン(閲覧用)", homes_guest_sign_in_path, method: :post, class: "button is-success is-light" %>
+                </p>
+                <p class="control">
                   <%= link_to "新規登録", new_user_registration_path, class: "button is-success is-light" %>
                 </p>
               </div>
