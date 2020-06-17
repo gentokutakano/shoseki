@@ -17,3 +17,4 @@ AllCops:
     - 'lib/tasks/*'
     - 'vendor/**/*'
     - 'config/routes.rb'
+    - 'app/controllers/home_controller.rb'
