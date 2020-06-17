@@ -1,24 +1,29 @@
-# README
+# アプリケーションの概要
+読んだ書籍を記録して共有できる、おすすめ書籍投稿サービス。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# 技術的ポイント
+・herokuを用いたRails本番環境構築　
+・Dockerを用いたRails開発環境構築
+・CircleCIによる自動ビルド＆テスト
+・Gitによる自動デプロイ
+・RSpecでテスト記述
+・Ajaxを用いた非同期処理（お気に入り登録/未登録などの切り替え表示）
+・Bulmaによるレスポンシブ対応
+・Rubocopを使用したコード規約に沿った開発
 
-Things you may want to cover:
+# アプリケーションの機能
+・読んだ書籍を投稿
+・画像を正方形に整形して投稿（refileを使用）
+・別ユーザーの書籍に対して「いいね!」機能
+・ログイン
+・ログイン状態の保持
+・ゲストユーザーログイン
+・モデルに対するバリデーション
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# 環境
+■フレームワーク
+　Ruby on Rails
+■インフラ
+　AWS s3, Docker
+■データベース
+　MySQL
