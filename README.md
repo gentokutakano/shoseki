@@ -2,7 +2,7 @@
 読んだ書籍を記録して共有できる、おすすめ書籍投稿サービス。
 
 # 技術的ポイント
-・herokuを用いたRails本番環境構築　
+・herokuを用いたRails本番環境構築(https://shoseki-app.herokuapp.com/)
 ・Dockerを用いたRails開発環境構築
 ・CircleCIによる自動ビルド＆テスト
 ・Gitによる自動デプロイ
