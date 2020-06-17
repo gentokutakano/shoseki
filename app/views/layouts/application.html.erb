@@ -6,6 +6,8 @@
     <%= csp_meta_tag %>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha256-UzFD2WYH2U1dQpKDjjZK72VtPeWP50NoJjd26rnAdUI=" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="/js/custom.js"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -23,67 +25,59 @@
       </div>
     <% end %>
 
-    <nav class="navbar">
+    <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <%= link_to root_path, class: "navbar-item" do %>
           <h1 class="title is-4" style="font-family: cursive;">Shoseki</h1>
         <% end %>
-        <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
       </div>
 
       <% if user_signed_in? %>
-        <div id="navbarExampleTransparentExample" class="navbar-menu">
+        <div id="navbarBasicExample" class="navbar-menu">
           <div class="navbar-item">
-            <%= link_to "書籍一覧", books_path, class: "navbar-item button is-success is-light" %>
+            <%= link_to "書籍一覧", books_path, class: "button is-success is-light" %>
           </div>
           <div class="navbar-item">
-            <%= link_to "書籍投稿", new_book_path, class: "navbar-item button is-success is-light" %>
-         </div>
+            <%= link_to "書籍投稿", new_book_path, class: "button is-success is-light" %>
+          </div>
 
           <div class="navbar-end">
             <div class="navbar-item">
-              <div class="field is-grouped">
-                <p class="control">
-                  <%= link_to "読書家一覧", users_path, class: " button is-success is-light" %>
-                </p> 
-                <p class="control">
-                  <%= link_to "マイページ", user_path(current_user), class: "button is-success is-light" %>
-                </p>
-                <p class="control">
-                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "button is-success is-light" %>
-                </p>
-              </div>
+              <%= link_to "読書家一覧", users_path, class: " button is-success is-light" %>
+            </div> 
+            <div class="navbar-item">
+              <%= link_to "マイページ", user_path(current_user), class: "button is-success is-light" %>
+            </div>
+            <div class="navbar-item">
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "button is-success is-light" %>
             </div>
           </div>
         </div>
       <% else %>
-        <div id="navbarExampleTransparentExample" class="navbar-menu">
+        <div id="navbarBasicExample" class="navbar-menu">
           <div class="navbar-item">
-            <%= link_to "書籍一覧", books_path, class: "navbar-item button is-success is-light" %>
+            <%= link_to "書籍一覧", books_path, class: "button is-success is-light" %>
           </div>
           <div class="navbar-item">
-            <%= link_to "読書家一覧", users_path, class: "navbar-item button is-success is-light" %>
+            <%= link_to "読書家一覧", users_path, class: "button is-success is-light" %>
           </div>
+          
           <div class="navbar-end">
             <div class="navbar-item">
-              <div class="field is-grouped">
-                <p class="control">
-                  <%= link_to "ログイン", new_user_session_path, class: "button is-success is-light" %>
-                </p>
-                <p class="control">
-                  <%= link_to "ゲストログイン(閲覧用)", homes_guest_sign_in_path, method: :post, class: "button is-success is-light" %>
-                </p>
-                <p class="control">
-                  <%= link_to "新規登録", new_user_registration_path, class: "button is-success is-light" %>
-                </p>
-              </div>
+              <%= link_to "ログイン", new_user_session_path, class: "button is-success is-light" %>
+            </div>
+            <div class="navbar-item">
+              <%= link_to "ゲストログイン(閲覧用)", homes_guest_sign_in_path, method: :post, class: "button is-success is-light" %>
+            </div>
+            <div class="navbar-item">
+              <%= link_to "新規登録", new_user_registration_path, class: "button is-success is-light" %>
             </div>
           </div>
-        </div>
       <% end %>
 
     </nav>
